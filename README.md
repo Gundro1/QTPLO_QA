@@ -1,15 +1,19 @@
-# QTPLO  - Automation & API Tests
+# QTPLO - Automation & API Tests
+
+[![Playwright tests](https://github.com/Gundro1/QTPLO_QA/actions/workflows/playwright.yml/badge.svg)](https://github.com/Gundro1/QTPLO_QA/actions/workflows/playwright.yml)
+
+Playwright UI tests for [SauceDemo](https://www.saucedemo.com) and API tests for the [Toolshop API](https://api.practicesoftwaretesting.com), with manual test cases and a bug report.
 
 ## Project Structure
 ```
 QTPLO-assessment/
-├── manual-test-cases.md          # Manual test cases document (37 test cases)
+├── manual-test-cases.md          # Manual test cases document (43 test cases)
 ├── package.json                  # Node.js project config
 ├── playwright.config.js          # Playwright configuration
 ├── README.md                     # This file
 └── tests/
     ├── login.spec.js             # Login automation tests (9 tests)
-    ├── cart-and-checkout.spec.js  # Cart & Checkout automation tests (17 tests)
+    ├── cart-and-checkout.spec.js  # Cart & Checkout automation tests (19 tests)
     └── api.spec.js               # API automation tests (20 tests)
 ```
 
@@ -47,9 +51,15 @@ npx playwright test tests/api.spec.js
 npx playwright show-report
 ```
 
+## Continuous Integration
+
+Every push and pull request runs the full suite on GitHub Actions (Chromium on Ubuntu). It also runs every Monday, so changes in the apps under test show up quickly. The HTML report is saved with each run under **Actions → the run → Artifacts → playwright-report**.
+
+One test is marked as a known bug with `test.fail()`: `API-004`, because the API accepts invalid email formats (see `BUG-API-003` in `bug-report.md`).
+
 ## Test Coverage Summary
 
-### Manual Test Cases (37 total)
+### Manual Test Cases (43 total)
 | Category | Count |
 |----------|-------|
 | Login | 10 |

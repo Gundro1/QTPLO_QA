@@ -35,9 +35,15 @@ This document highlights critical findings and logical flaws identified during t
 - **Status in Automation:** Handled in `API-016` by accepting 404 as an expected error code.
 
 ### [BUG-API-002] Duplicate Email Handling (Behavior Verification)
-- **Description:** Re-registering an existing email correctly returns a **422/400** error. 
+- **Description:** Re-registering an existing email is correctly rejected. The API now returns **409 Conflict** (re-checked Nov 2026; it used to return 422/400).
 - **Severity:** Informational (Verified Security Constraint).
-- **Status in Automation:** Covered in `API-002`.
+- **Status in Automation:** Covered in `API-002`, which accepts 400, 409 or 422.
+
+### [BUG-API-003] Invalid Email Format Accepted at Registration
+- **Description:** `POST /users/register` accepts emails with no valid format (e.g. `not-an-email-123`, `bad@@x`) and creates the account with **201 Created**.
+- **Expected:** **400 Bad Request** or **422 Unprocessable Entity** with an "invalid email" message.
+- **Severity:** Medium (Input validation gap: accounts can be created that can never receive email, e.g. password resets)
+- **Status in Automation:** `API-004` is marked as an expected failure (`test.fail`) until the API is fixed.
 
 ---
 
