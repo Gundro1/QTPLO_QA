@@ -1,4 +1,8 @@
-# QTPLO  - Automation & API Tests
+# QTPLO - Automation & API Tests
+
+[![Playwright tests](https://github.com/Gundro1/QTPLO_QA/actions/workflows/playwright.yml/badge.svg)](https://github.com/Gundro1/QTPLO_QA/actions/workflows/playwright.yml)
+
+Playwright UI tests for [SauceDemo](https://www.saucedemo.com) and API tests for the [Toolshop API](https://api.practicesoftwaretesting.com), with manual test cases and a bug report.
 
 ## Project Structure
 ```
@@ -46,6 +50,12 @@ npx playwright test tests/api.spec.js
 ```bash
 npx playwright show-report
 ```
+
+## Continuous Integration
+
+Every push and pull request runs the full suite on GitHub Actions (Chromium on Ubuntu). It also runs every Monday, so changes in the apps under test show up quickly. The HTML report is saved with each run under **Actions → the run → Artifacts → playwright-report**.
+
+One test is marked as a known bug with `test.fail()`: `API-004`, because the API accepts invalid email formats (see `BUG-API-003` in `bug-report.md`).
 
 ## Test Coverage Summary
 
