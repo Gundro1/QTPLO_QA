@@ -7,13 +7,13 @@ Playwright UI tests for [SauceDemo](https://www.saucedemo.com) and API tests for
 ## Project Structure
 ```
 QTPLO-assessment/
-├── manual-test-cases.md          # Manual test cases document (37 test cases)
+├── manual-test-cases.md          # Manual test cases document (43 test cases)
 ├── package.json                  # Node.js project config
 ├── playwright.config.js          # Playwright configuration
 ├── README.md                     # This file
 └── tests/
     ├── login.spec.js             # Login automation tests (9 tests)
-    ├── cart-and-checkout.spec.js  # Cart & Checkout automation tests (17 tests)
+    ├── cart-and-checkout.spec.js  # Cart & Checkout automation tests (19 tests)
     └── api.spec.js               # API automation tests (20 tests)
 ```
 
@@ -59,7 +59,7 @@ One test is marked as a known bug with `test.fail()`: `API-004`, because the API
 
 ## Test Coverage Summary
 
-### Manual Test Cases (37 total)
+### Manual Test Cases (43 total)
 | Category | Count |
 |----------|-------|
 | Login | 10 |
